@@ -1,0 +1,5 @@
+GET /usuarios 200 82 - 449.169 ms
+POST /usuarios 404 92 - 49.330 ms
+POST /usuarios 200 273 - 285.205 ms
+POST /ropa 404 91 - 2.541 ms
+POST /ropa 200 247 - 452.377 ms
