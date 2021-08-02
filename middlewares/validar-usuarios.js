@@ -25,16 +25,11 @@ const validarPostUsuario = async(req, res, next) => {
         apellido: Joi.string().required(),
         password: Joi.string().required(),
         email: Joi.string().email().required(),
-        roles: Joi.array()
-            .items(
-                Joi.string().valid(
-                    "ADMIN",
-                    "EMPLOYER",
-                    "USER"
-                )
-            )
-            .max(4)
-            .required(),
+        roles: Joi.string().valid(
+            "ADMIN",
+            "EMPLOYER",
+            "USER"
+        )
     });
 
     try {
@@ -71,15 +66,11 @@ const validarPutUsuario = async(req, res, next) => {
     const schema = Joi.object({
         password: Joi.string(),
         email: Joi.string().email(),
-        roles: Joi.array()
-            .items(
-                Joi.string().valid(
-                    "ADMIN",
-                    "EMPLOYER",
-                    "USER"
-                )
-            )
-            .max(4),
+        roles: Joi.string().valid(
+            "ADMIN",
+            "EMPLOYER",
+            "USER"
+        )
     });
 
     try {

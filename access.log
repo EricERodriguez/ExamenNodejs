@@ -21,3 +21,6 @@ POST /auth/login 500 74 - 197.143 ms
 POST /auth/login 500 74 - 208.433 ms
 POST /auth/login 500 74 - 193.024 ms
 POST /auth/login 200 546 - 324.415 ms
+POST /usuarios 200 337 - 355.914 ms
+POST /auth/login 200 546 - 288.585 ms
+POST /auth/login 200 454 - 327.673 ms
