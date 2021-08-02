@@ -32,11 +32,11 @@ Se debe considerar:
 POST registro (sin validación de token ni rol)  (completed)
 POST login (sin validación de token ni rol)     (completed)
 
-PUT usuario (se debe validar que el usuario a modificar sea el dueño del token o que el usuario del token sea de rol -ADMINISTRADOR)
+PUT usuario (se debe validar que el usuario a modificar sea el dueño del token o que el usuario del token sea de rol -ADMINISTRADOR) (completed)
 GET usuario (se debe validar que el usuario a obtener sea el dueño del token o que el usuario
-del token  sea de rol -ADMINISTRADOR)
+del token  sea de rol -ADMINISTRADOR) (completed)
 DELETE usuario (se debe validar que el usuario a modificar sea el dueño del token o que el usuario
-del token sea de rol -ADMINISTRADOR)
+del token sea de rol -ADMINISTRADOR) (completed)
 
 POST ropa (se debe validar que el dueño del token sea de rol ADMINISTRADOR o EMPLEADO) (completed)
 GET ropa (cualquiera que tenga token) (completed)
