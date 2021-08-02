@@ -34,3 +34,5 @@ POST /ropa 403 78 - 0.468 ms
 POST /ropa 200 247 - 224.093 ms
 POST /auth/registro 404 62 - 2.621 ms
 POST /auth/registro 200 262 - 358.223 ms
+POST /auth/login 200 470 - 322.439 ms
+POST /ropa 200 246 - 410.374 ms
