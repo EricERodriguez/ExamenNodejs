@@ -9,7 +9,8 @@ const {
     putRopa,
     deleteRopa,
     getAllRopas,
-} = require(`../controllers/ropa`)
+} = require(`../controllers/ropa`);
+const { validateRoles } = require("../middlewares/validar-auth");
 
 
 //validaciones
@@ -24,10 +25,10 @@ router.get(`/`, getAllRopas)
 
 router.get(`/:_id`, validarIdParamRopa, getRopa)
 
-router.post(`/`, validarPostRopa, postRopa)
+router.post(`/`, [validateRoles("ADMIN", "EMPLOYER"), validarPostRopa], postRopa)
 
-router.put(`/:_id`, validarIdParamRopa, validarPutRopa, putRopa)
+router.put(`/:_id`, [validateRoles("ADMIN", "EMPLOYER"), validarIdParamRopa, validarPutRopa], putRopa)
 
-router.delete(`/:_id`, validarIdParamRopa, deleteRopa)
+router.delete(`/:_id`, [validateRoles("ADMIN", "EMPLOYER"), validarIdParamRopa], deleteRopa)
 
 module.exports = router;

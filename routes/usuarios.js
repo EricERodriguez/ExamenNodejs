@@ -4,11 +4,12 @@ const router = Router();
 
 const {
     getUsuario,
-    postUsuario,
+    // postUsuario,
     putUsuario,
     deleteUsuario,
     getAllUsuarios,
-} = require(`../controllers/usuarios`)
+} = require(`../controllers/usuarios`);
+const { validateRoles } = require("../middlewares/validar-auth");
 
 
 //validaciones
@@ -19,14 +20,14 @@ const {
 
 } = require(`../middlewares/validar-usuarios`)
 
-router.get(`/`, getAllUsuarios)
+router.get(`/`, validateRoles("ADMIN"), getAllUsuarios)
 
 router.get(`/:_id`, validarIdParamUsuario, getUsuario)
 
-router.post(`/`, validarPostUsuario, postUsuario)
+// router.post(`/`, validarPostUsuario, postUsuario)
 
-router.put(`/:_id`, validarIdParamUsuario, validarPutUsuario, putUsuario)
+router.put(`/:_id`, [validateRoles("ADMIN"), validarIdParamUsuario, validarPutUsuario], putUsuario)
 
-router.delete(`/:_id`, validarIdParamUsuario, deleteUsuario)
+router.delete(`/:_id`, [validateRoles("ADMIN"), validarIdParamUsuario], deleteUsuario)
 
 module.exports = router;

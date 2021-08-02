@@ -55,6 +55,35 @@ const login = async(req, res) => {
 }
 
 
+const registro = async(req, res) => {
+
+    const { password, ...resto } = req.body;
+
+    resto.password = bcryptjs.hashSync(password, 10);
+
+    try {
+        const usuario = await Usuario.create(resto);
+        console.log(usuario);
+        res.status(200).json({
+            code: "Ok",
+            message: null,
+            success: true,
+            data: usuario
+        });
+    } catch (error) {
+        console.log(error);
+
+        // Esta es nuestra respuesta desde el backend
+        return res.status(500).send({
+            code: "ERR",
+            message: error.message,
+            success: false,
+            data: null
+        });
+    }
+};
+
 module.exports = {
-    login
+    login,
+    registro
 };

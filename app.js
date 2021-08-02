@@ -31,7 +31,7 @@ app.use(express.text());
 app.use(express.json());
 
 //uso el token del middle
-app.use(validateToken);
+// app.use(validateToken);
 
 //Utilizando morgan y manipulando archivos
 const accessLogStream = fs.createWriteStream(
@@ -42,8 +42,8 @@ const accessLogStream = fs.createWriteStream(
 
 app.use(morgan('tiny', { stream: accessLogStream }));
 
-app.use(`/usuarios`, rutasUsuarios);
-app.use(`/ropa`, rutasRopa);
+app.use(`/usuarios`, validateToken, rutasUsuarios);
+app.use(`/ropa`, validateToken, rutasRopa);
 
 app.use(`/auth`, authRoutes);
 

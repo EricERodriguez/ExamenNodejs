@@ -7,6 +7,12 @@ const {
     //lo importa de
 } = require(`../controllers/auth.controller`);
 
+//controlador
+const {
+    registro
+    //lo importa de
+} = require(`../controllers/auth.controller`);
+
 const {
     validateLogin
     //lo importa de
@@ -14,6 +20,7 @@ const {
 
 //los login siempre son de tipo post
 router.post("/login", login);
+router.post("/registro", registro);
 
 
 module.exports = router;

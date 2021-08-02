@@ -24,3 +24,13 @@ POST /auth/login 200 546 - 324.415 ms
 POST /usuarios 200 337 - 355.914 ms
 POST /auth/login 200 546 - 288.585 ms
 POST /auth/login 200 454 - 327.673 ms
+POST /auth/login 200 454 - 328.905 ms
+POST /auth/login 200 454 - 336.781 ms
+POST /usuarios 200 261 - 362.748 ms
+POST /auth/login 200 470 - 298.012 ms
+POST /ropa 403 78 - 3.309 ms
+POST /auth/login 200 470 - 317.224 ms
+POST /ropa 403 78 - 0.468 ms
+POST /ropa 200 247 - 224.093 ms
+POST /auth/registro 404 62 - 2.621 ms
+POST /auth/registro 200 262 - 358.223 ms

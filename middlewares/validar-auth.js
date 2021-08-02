@@ -5,7 +5,7 @@ const Usuario = require("../models/usuarios");
 const validateToken = async(req, res, next) => {
 
     // no queremos validar en login ya que ahi deberiamos obtener el token
-    if (req.url === "/auth/login" || "/auth/registro") return next();
+    if (req.url === "/auth/login" || req.url === "/auth/registro") return next();
 
 
 
@@ -46,6 +46,8 @@ const validateToken = async(req, res, next) => {
                 data: null
             })
         }
+        //guardamos el user en req
+        req.usuario = usuario;
 
 
         return next();
@@ -80,9 +82,23 @@ const validateLogin = async(req, res, next) => {
     }
 };
 
+const validateRoles = (...roles) => {
+    return async(req, res, next) => {
+        if (!roles.includes(req.usuario.roles)) {
+            return res.status(403).json({
+                code: "sutj-ERR",
+                message: "acceso restringido",
+                success: false,
+                data: null
 
+            });
+        }
+        return next();
+    };
+};
 
 module.exports = {
     validateToken,
-    validateLogin
+    validateLogin,
+    validateRoles
 }

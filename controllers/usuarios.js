@@ -77,35 +77,35 @@ const getUsuario = async(req, res) => {
 
 
 
-const postUsuario = async(req, res) => {
+// const postUsuario = async(req, res) => {
 
-    //extraer la contrasena del body, en resto guardamos los datos del usuario con spread operator
+//     //extraer la contrasena del body, en resto guardamos los datos del usuario con spread operator
 
-    const { password, ...resto } = req.body;
+//     const { password, ...resto } = req.body;
 
-    resto.password = bcryptjs.hashSync(password, 10);
+//     resto.password = bcryptjs.hashSync(password, 10);
 
-    try {
-        const usuario = await Usuario.create(resto);
-        console.log(usuario);
-        res.status(200).json({
-            code: "Ok",
-            message: null,
-            success: true,
-            data: usuario
-        });
-    } catch (error) {
-        console.log(error);
+//     try {
+//         const usuario = await Usuario.create(resto);
+//         console.log(usuario);
+//         res.status(200).json({
+//             code: "Ok",
+//             message: null,
+//             success: true,
+//             data: usuario
+//         });
+//     } catch (error) {
+//         console.log(error);
 
-        // Esta es nuestra respuesta desde el backend
-        return res.status(500).send({
-            code: "ERR",
-            message: error.message,
-            success: false,
-            data: null
-        });
-    }
-};
+//         // Esta es nuestra respuesta desde el backend
+//         return res.status(500).send({
+//             code: "ERR",
+//             message: error.message,
+//             success: false,
+//             data: null
+//         });
+//     }
+// };
 
 
 
@@ -191,7 +191,7 @@ const deleteUsuario = async(req, res) => {
 
 module.exports = {
     getUsuario,
-    postUsuario,
+    // postUsuario,
     putUsuario,
     deleteUsuario,
     getAllUsuarios
