@@ -7,11 +7,11 @@ const Usuario = require("../models/usuarios");
 const login = async(req, res) => {
 
     //sing({payload}, clave privada)
-    const token = jwt.sign({ foo: 'bar' }, '123');
+    const token = jwt.sign({ foo: 'bar' }, process.env.PRIVATE_KEY);
     console.log(token);
 
 
-    console.log(req.body)
+    // console.log(req.body)
 
     try {
         return res.status(200).json({

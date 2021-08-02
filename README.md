@@ -29,8 +29,8 @@ Debe existir un Login y un Registro de usuarios.
 
 
 Se debe considerar:
-POST registro (sin validación de token ni rol)
-POST login (sin validación de token ni rol)
+POST registro (sin validación de token ni rol)  (completed)
+POST login (sin validación de token ni rol)     (completed)
 
 PUT usuario (se debe validar que el usuario a modificar sea el dueño del token o que el usuario del token sea de rol ADMINISTRADOR)
 GET usuario (se debe validar que el usuario a obtener sea el dueño del token o que el usuario
