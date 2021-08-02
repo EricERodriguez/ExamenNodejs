@@ -67,5 +67,8 @@ npm install mongoose
 npm i jsonwebtoken
 https://jwt.io/
 
+para encriptar:
+npm i bcryptjs
+
 
 </code></pre>

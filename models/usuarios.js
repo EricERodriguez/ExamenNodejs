@@ -15,7 +15,8 @@ const UsuarioSchema = Schema({
     },
     email: {
         type: String,
-        require: true
+        require: true,
+        unique: true
     },
     roles: [{
         type: String,

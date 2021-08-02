@@ -1,4 +1,5 @@
 const Usuario = require("../models/usuarios");
+const bcryptjs = require('bcryptjs');
 
 
 
@@ -77,8 +78,15 @@ const getUsuario = async(req, res) => {
 
 
 const postUsuario = async(req, res) => {
+
+    //extraer la contrasena del body, en resto guardamos los datos del usuario con spread operator
+
+    const { password, ...resto } = req.body;
+
+    resto.password = bcryptjs.hashSync(password, 10);
+
     try {
-        const usuario = await Usuario.create(req.body);
+        const usuario = await Usuario.create(resto);
         console.log(usuario);
         res.status(200).json({
             code: "Ok",
