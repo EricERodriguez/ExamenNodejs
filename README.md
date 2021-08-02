@@ -15,6 +15,7 @@ Se requiere crear una API Restful, la cual debe implementar dos CRUDs sobre las 
     rol: String (puede ser ADMIN, EMPLOYER o USER)
 }
 
+
 //------------------------- ROPA
 {
     _id: ObjectId,
