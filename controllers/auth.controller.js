@@ -1,4 +1,4 @@
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 
 const Usuario = require("../models/usuarios");
 
@@ -31,7 +31,7 @@ const login = async(req, res) => {
         }
         //sing({payload =  vamos a guardar el id}, clave privada) ----  el expiredin es para que el token espire con el tiempo (yo le puse un año asi no me molesta)
         const token = jwt.sign({ _id: usuario._id }, process.env.PRIVATE_KEY, { expiresIn: "8760h" });
-        // console.log(token);
+        console.log(token);
 
 
         return res.status(200).json({

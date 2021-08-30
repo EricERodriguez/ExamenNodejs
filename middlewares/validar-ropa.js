@@ -34,7 +34,7 @@ const validarPostRopa = async(req, res, next) => {
         cantidad: Joi.number().required(),
         precio: Joi.number().required(),
         descripcion: Joi.string().required(),
-        
+        linkImage: Joi.string()
     });
 
     try {
@@ -82,6 +82,7 @@ const validarPutRopa = async(req, res, next) => {
         cantidqad: Joi.number().required(),
         precio: Joi.number().required(),
         descripcion: Joi.string().required(),
+        linkImage: Joi.string()
     });
 
     try {

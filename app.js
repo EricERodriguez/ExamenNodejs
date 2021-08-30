@@ -1,6 +1,16 @@
 require(`dotenv`).config();
 const express = require("express");
 const morgan = require("morgan");
+const corsMiddleware = require("./middlewares/cors");
+
+const app = express();
+app.use(corsMiddleware);
+
+// cors
+
+const cors = require("cors");
+app.use(cors());
+app.options("*", cors());
 
 
 //guardar logs y verificar que este andando el programa
@@ -21,7 +31,7 @@ const { validateToken } = require("./middlewares/validar-auth");
 const dbConnection = require("./configs/mongodb");
 
 
-const app = express();
+
 
 //conectar a la base de datos
 
@@ -43,7 +53,10 @@ const accessLogStream = fs.createWriteStream(
 app.use(morgan('tiny', { stream: accessLogStream }));
 
 app.use(`/usuarios`, validateToken, rutasUsuarios);
+// app.use(`/usuarios`,  rutasUsuarios);
 app.use(`/ropa`, validateToken, rutasRopa);
+// app.use(`/ropa`,  rutasRopa);
+
 
 app.use(`/auth`, authRoutes);
 
@@ -57,3 +70,6 @@ const port = process.env.PORT;
 app.listen(port, () => {
     console.log(`servidor corriendo en el ${port}`)
 });
+
+
+

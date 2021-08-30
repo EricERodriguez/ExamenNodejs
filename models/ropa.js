@@ -20,6 +20,10 @@ const RopaSchema = Schema({
     descripcion: {
         type: String,
         require: true
+    },
+    linkImage: {
+        type: String,
+        require: true
     }
 }, {
     timestamps: true
