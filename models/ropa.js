@@ -11,15 +11,15 @@ const RopaSchema = Schema({
     }],
     cantidad: {
         type: Number,
-        require: true
+        require: false
     },
     precio: {
         type: Number,
-        require: true
+        require: false
     },
     descripcion: {
         type: String,
-        require: true
+        require: false
     },
     linkImage: {
         type: String,
